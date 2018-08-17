@@ -31,11 +31,14 @@ pod 'SnapSDK', :subspecs => ['SCSDKLoginKit', 'SCSDKCreativeKit', 'SCSDKBitmojiK
 ### Edit Properties List
 1. Right click on the Info.plist file in Xcode and choose Open As > Source Code
 2. The string value for **SCSDKClientId** is the OATH2 CLIENT ID you noted from step 2 in **"Get a Snapchat Developer Account"**
+
 ```xml
 <key>SCSDKClientId</key>
     <string>OAUTH2 CLIENT ID</string> 
-```xml
-3. The string value for **CFBundleURLSchemes** is the first portion of the Redirect URL.  So if the Redirect URL from step 4 in **"Get a Snapchat Developer Account"** was _myuniqueapp_://somepath, the value would be 'myuniqueapp'
+```
+
+3. The string value for **CFBundleURLSchemes** is the first portion of the Redirect URL.  So if the Redirect URL from step 4 in **"Get a Snapchat Developer Account"** was _myuniqueapp_://somepath, the value would be myuniqueapp
+
 ```xml
 <array>
 		<dict>
@@ -47,8 +50,10 @@ pod 'SnapSDK', :subspecs => ['SCSDKLoginKit', 'SCSDKCreativeKit', 'SCSDKBitmojiK
 			</array>
 		</dict>
 	</array>
-```xml
+```
+
 4. The **LSApplicationQueriesSchemes** would also need to be added to a new Info.plist, but it has **already** been added to this repository's plist
+
 ```xml
 <key>LSApplicationQueriesSchemes</key>
 	<array>
@@ -57,8 +62,6 @@ pod 'SnapSDK', :subspecs => ['SCSDKLoginKit', 'SCSDKCreativeKit', 'SCSDKBitmojiK
 		<string>bitmoji-sdk</string>
 	</array>
 ```    
-
-
 
 ## Login Kit
 <img src="https://user-images.githubusercontent.com/17683316/42131965-12afd184-7d49-11e8-931b-0ef5578157df.png" width="100">
