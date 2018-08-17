@@ -1,38 +1,44 @@
 ![snapkit-sample-ios](https://user-images.githubusercontent.com/17683316/42133453-51ae48ea-7d65-11e8-980c-3a93026255d2.png)
 
-This is an **unofficial** demo app of the Snap Kit produced by SnapChat.
+This is an **unofficial** demo app of Snap Kit SDK produced by SnapChat for iOS Swift
 
-## Installation
+## Documentation
+* [Snapchat Snap Kit Official Documentation](https://docs.snapchat.com/docs)
+* [Snapcat Snap Kit DIY Docs](https://github.com/bbookman/Snapchat-Snap-Kit-DIY-Docs)
+* [Cocoapods](https://guides.cocoapods.org/using/getting-started.html)
 
-You can install `SnapSDK` via Cocoapods.
+
+## Instructions
+### Get a Snapchat Developer Account
+
+1. Sign up for an account on the [Snapchat Dev Portal](https://kit.snapchat.com/)
+2. Note / copy the value in **Development App Info** > **OAUTH2 CLIENT ID**
+3. Enter the iOS Bundle ID for your app in **Development App Info** > **IOS BUNDLE ID** > _Add Your id here ..._
+
+### Snap Kit SDK
+Open your Podfile and add
 
 ```ruby
 pod 'SnapSDK', :subspecs => ['SCSDKLoginKit', 'SCSDKCreativeKit', 'SCSDKBitmojiKit']
 ```
 
+###
+
+
 ## Login Kit
 <img src="https://user-images.githubusercontent.com/17683316/42131965-12afd184-7d49-11e8-931b-0ef5578157df.png" width="100">
-
-First of all, you should check this document.
-https://docs.snapchat.com/docs/login-kit/
-
-Following this document, you can implement SnapChat login. 
-
-You can fetch displayName & avatar (bitmoji avatar) so far.
-
-<img src="https://user-images.githubusercontent.com/17683316/42132023-729a370a-7d4a-11e8-9fff-c93cd4940e69.gif" width="250">
 
 ### 1.Call Login Method when the button tapped
 
 ```swift
 @IBAction func loginButtonTapped(_ sender: Any) {
     SCSDKLoginClient.login(from: self, completion: { success, error in
-        
+
         if let error = error {
             print(error.localizedDescription)
             return
         }
-        
+
         if success {
             self.fetchSnapUserInfo()
         }
@@ -51,17 +57,17 @@ And this codes, I made UserEntity which is inheriting Decodable because using it
 ```swift
 private func fetchSnapUserInfo(){
     let graphQLQuery = "{me{displayName, bitmoji{avatar}}}"
-    
+
     SCSDKLoginClient
         .fetchUserData(
             withQuery: graphQLQuery,
             variables: nil,
             success: { userInfo in
-                
+
                 if let userInfo = userInfo,
                     let data = try? JSONSerialization.data(withJSONObject: userInfo, options: .prettyPrinted),
                     let userEntity = try? JSONDecoder().decode(UserEntity.self, from: data) {
-                    
+
                     DispatchQueue.main.async {
                         self.goToLoginConfirm(userEntity)
                     }
@@ -88,7 +94,7 @@ I don't know the reason, but it seems to be the rule of SnapChat Developer Potal
 ## Creative Kit
 <img src="https://user-images.githubusercontent.com/17683316/42131997-9b7b3b8e-7d49-11e8-9651-092cf14fed1e.png" width="100">
 
-Following this document https://docs.snapchat.com/docs/creative-kit/ 
+Following this document https://docs.snapchat.com/docs/creative-kit/
 
 This is so easy to code.
 
@@ -108,21 +114,21 @@ let snap = SCSDKPhotoSnapContent(snapPhoto: photo)
 // Sticker
 let sticker = SCSDKSnapSticker(stickerImage: #imageLiteral(resourceName: "snap-ghost"))
 snap.sticker = sticker
-        
+
 // Caption
 snap.caption = "Snap on Snapchat!"
-        
+
 // URL
 snap.attachmentUrl = "https://www.snapchat.com"
-        
+
 let api = SCSDKSnapAPI(content: snap)
 api.startSnapping { error in
-            
+
     if let error = error {
         print(error.localizedDescription)
     } else {
         // success
-    
+
     }
 }
 ```
@@ -170,7 +176,7 @@ You can add the picker view as child viewController. It's very easy.
     )
     view.addSubview(backgroundView)
     bitmojiSelectionView = backgroundView
-    
+
     // add child ViewController
     let stickerPickerVC = SCSDKBitmojiStickerPickerViewController()
     stickerPickerVC.delegate = self
@@ -188,20 +194,20 @@ In this demo codes, it makes the AR stamps by the URL of bitmoji and place to th
 
 ```swift
 extension CameraViewController: SCSDKBitmojiStickerPickerViewControllerDelegate {
-    
+
     func bitmojiStickerPickerViewController(_ stickerPickerViewController: SCSDKBitmojiStickerPickerViewController, didSelectBitmojiWithURL bitmojiURL: String) {
-        
+
         bitmojiSelectionView?.removeFromSuperview()
-        
+
         if let image = UIImage.load(from: bitmojiURL) {
             DispatchQueue.main.async {
                 self.setImageToScene(image: image)
             }
         }
     }
-    
+
     func bitmojiStickerPickerViewController(_ stickerPickerViewController: SCSDKBitmojiStickerPickerViewController, searchFieldFocusDidChangeWithFocus hasFocus: Bool) {
-        
+
     }
 }
 ```
