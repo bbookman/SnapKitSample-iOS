@@ -14,15 +14,50 @@ This is an **unofficial** demo app of Snap Kit SDK produced by SnapChat for iOS 
 1. Sign up for an account on the [Snapchat Dev Portal](https://kit.snapchat.com/)
 2. Note / copy the value in **Development App Info** > **OAUTH2 CLIENT ID**
 3. Enter the iOS Bundle ID for your app in **Development App Info** > **IOS BUNDLE ID** > _Add Your id here ..._
+4. Under **Redirect URLs** enter a unique URL.  For example, you might choose the name of your app and a path.  
+  * The key is that this be unique, but can be "made up" as long as the value you enter here is also the value you place in the Info.plist as described below.  
+  * Example URL: **_myuniqueapp://somepath_**
+  * Make note of the value you choose
 
 ### Snap Kit SDK
-Open your Podfile and add
+
+1. Open your Podfile and add
 
 ```ruby
 pod 'SnapSDK', :subspecs => ['SCSDKLoginKit', 'SCSDKCreativeKit', 'SCSDKBitmojiKit']
 ```
+2. pod install
 
-###
+### Edit Properties List
+1. Right click on the Info.plist file in Xcode and choose Open As > Source Code
+2. The string value for **SCSDKClientId** is the OATH2 CLIENT ID you noted from step 2 in **"Get a Snapchat Developer Account"**
+```xml
+<key>SCSDKClientId</key>
+    <string>OAUTH2 CLIENT ID</string> 
+```xml
+3. The string value for **CFBundleURLSchemes** is the first portion of the Redirect URL.  So if the Redirect URL from step 4 in **"Get a Snapchat Developer Account"** was _myuniqueapp_://somepath, the value would be 'myuniqueapp'
+```xml
+<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string><insert your own value here></string>
+			</array>
+		</dict>
+	</array>
+```xml
+4. The **LSApplicationQueriesSchemes** would also need to be added to a new Info.plist, but it has **already** been added to this repository's plist
+```xml
+<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>itms-apps</string>
+		<string>snapchat</string>
+		<string>bitmoji-sdk</string>
+	</array>
+```    
+
 
 
 ## Login Kit
