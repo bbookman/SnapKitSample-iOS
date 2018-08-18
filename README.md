@@ -9,7 +9,13 @@ This is an **unofficial** demo app of Snap Kit SDK produced by SnapChat for iOS 
 
 ## Instructions
 
-These instructions assume a basic knowlege of Swift and Cocoapods
+These instructions assume a basic knowlege of Swift and Cocoapods.  This readme contains both instructions for getting the app to run as well as more detail on the code.
+
+If you just want to get the app running with all the default code, follow steps:
+1. Get a Snapchat Developer Account
+2. Snap Kit SDK
+3. Edit Properties List
+
 
 ### Get a Snapchat Developer Account
 
