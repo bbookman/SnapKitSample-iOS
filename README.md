@@ -103,7 +103,7 @@ let loginButton = SCSDKLoginButton()
         }
 
         if success {
-            self.fetchSnapUserInfo()
+            self.fetchSnapUserInfo() //used in the demo app to get user info
         }
     })
 }
