@@ -86,6 +86,7 @@ This code needs to be added in the AppDelegate.swift file.  It has already been 
 ```
 
 ### Snapchat Official Login Button
+The demo app uses it's own button (see below)
 
 ```swift
 let loginButton = SCSDKLoginButton()
