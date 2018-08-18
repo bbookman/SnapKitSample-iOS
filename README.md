@@ -154,8 +154,6 @@ private func fetchSnapUserInfo(){
 ## Creative Kit
 <img src="https://user-images.githubusercontent.com/17683316/42131997-9b7b3b8e-7d49-11e8-9651-092cf14fed1e.png" width="100">
 
-Following this document https://docs.snapchat.com/docs/creative-kit/
-
 You can share a photo or video attaching a sticker, url, and caption.
 
 <img src="https://user-images.githubusercontent.com/17683316/42210546-402b855a-7eec-11e8-91f1-4c04e3242113.gif" width="250">
@@ -191,14 +189,12 @@ api.startSnapping { error in
 }
 ```
 
-If you use `SCSDKVideoSnapContent`, you can share the videos.
+If you use `SCSDKVideoSnapContent`, you can share the video.
 
 ## Bitmoji Kit
 <img src="https://user-images.githubusercontent.com/17683316/42131995-9914d864-7d49-11e8-95de-f8c053b2f706.png" width="100">
 
-### Fetch avatar image
-
-You can fetch your avatar image by coding like below codes.
+### Fetch Bitmoji
 
 ```swift
 import SCSDKBitmojiKit
@@ -213,11 +209,11 @@ SCSDKBitmojiClient.fetchAvatarURL { (avatarURL: String?, error: Error?) in
 }
 ```
 
-### Show bitmoji pickerview
+### Show Bitmoji Picker View
 
-The SCSDKBitmojiStickerPickerViewController is prepared in SCSDKBitmojiKit.
+Use SCSDKBitmojiStickerPickerViewController and add as a child 
 
-You can add the picker view as child viewController. It's very easy.
+You can add the picker view as child ViewController.
 
 ```swift
 @IBAction func bitmojiButtonTapped(_ sender: Any) {
@@ -246,9 +242,9 @@ You can add the picker view as child viewController. It's very easy.
 
 ### Inherit SCSDKBitmojiStickerPickerViewControllerDelegate
 
-If you Inherit SCSDKBitmojiStickerPickerViewControllerDelegate, you can track events when the piker is selected, and the serach field is focused.
+If you Inherit SCSDKBitmojiStickerPickerViewControllerDelegate, you can track events when the picker is selected, and the search field is focused.
 
-In this demo codes, it makes the AR stamps by the URL of bitmoji and place to the sceneView.
+The code below retrieves the bitmoji to set in the scene
 
 ```swift
 extension CameraViewController: SCSDKBitmojiStickerPickerViewControllerDelegate {
@@ -271,7 +267,3 @@ extension CameraViewController: SCSDKBitmojiStickerPickerViewControllerDelegate 
 ```
 
 <img src="https://user-images.githubusercontent.com/17683316/42438970-8c02222c-839c-11e8-8ccb-5b0d266aa02a.gif" width="250">
-
-## Reference
-- https://kit.snapchat.com/
-- https://storage.googleapis.com/snap-inc/brand-guidelines/snapchat-brand-standards.pdf
