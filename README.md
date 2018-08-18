@@ -74,6 +74,17 @@ Anyplace you need the Login Kit code
 import SCSDKLoginKit
 ```
 
+### AppDelegate
+
+This code needs to be added in the AppDelegate.swift file.  It has already been added to this sample app
+
+```swift
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        return SCSDKLoginClient.application(app, open: url, options: options)
+    }
+```
+
 ### Snapchat Official Login Button
 
 ```swift
