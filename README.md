@@ -7,13 +7,15 @@ This is an **unofficial** demo app of Snap Kit SDK produced by SnapChat for iOS 
 * [Snapcat Snap Kit DIY Docs](https://github.com/bbookman/Snapchat-Snap-Kit-DIY-Docs)
 * [Cocoapods](https://guides.cocoapods.org/using/getting-started.html)
 
-
 ## Instructions
+
+These instructions assume a basic knowlege of Swift and Cocoapods
+
 ### Get a Snapchat Developer Account
 
 1. Sign up for an account on the [Snapchat Dev Portal](https://kit.snapchat.com/)
 2. Note / copy the value in **Development App Info** > **OAUTH2 CLIENT ID**
-3. Enter the iOS Bundle ID for your app in **Development App Info** > **IOS BUNDLE ID** > _Add Your id here ..._
+3. Enter the [iOS Bundle ID](https://cocoacasts.com/what-are-app-ids-and-bundle-identifiers/) for your app in **Development App Info** > **IOS BUNDLE ID** > _Add Your id here ..._
 4. Under **Redirect URLs** enter a unique URL.  For example, you might choose the name of your app and a path.  
   * The key is that this be unique, but can be "made up" as long as the value you enter here is also the value you place in the Info.plist as described below.  
   * Example URL: **_myuniqueapp://somepath_**
@@ -41,15 +43,15 @@ pod 'SnapSDK', :subspecs => ['SCSDKLoginKit', 'SCSDKCreativeKit', 'SCSDKBitmojiK
 
 ```xml
 <array>
-		<dict>
-			<key>CFBundleTypeRole</key>
+	<dict>
+		<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string><insert your own value here></string>
 			</array>
-		</dict>
-	</array>
+	</dict>
+</array>
 ```
 
 4. The **LSApplicationQueriesSchemes** would also need to be added to a new Info.plist, but it has **already** been added to this repository's plist
@@ -66,7 +68,19 @@ pod 'SnapSDK', :subspecs => ['SCSDKLoginKit', 'SCSDKCreativeKit', 'SCSDKBitmojiK
 ## Login Kit
 <img src="https://user-images.githubusercontent.com/17683316/42131965-12afd184-7d49-11e8-931b-0ef5578157df.png" width="100">
 
-### 1.Call Login Method when the button tapped
+Anyplace you need the Login Kit code
+
+```swift
+import SCSDKLoginKit
+```
+
+### Snapchat Official Login Button
+
+```swift
+let loginButton = SCSDKLoginButton()
+```
+
+### Other Login Button
 
 ```swift
 @IBAction func loginButtonTapped(_ sender: Any) {
