@@ -98,13 +98,16 @@ let loginButton = SCSDKLoginButton()
 }
 ```
 
-### 2.After login, fetch user datas
+### Get User Data
 
-One of the interesting things is that Snap Kit is using the GraphQL not the RestAPI.
+Snapchat does not gather much data from users:
+* User ID (A Snapchat internal generated value)
+* Display Name (User's chosen display name)
+* Bitmoji (Avatar, if user has created one)
 
-If you don't know the GraphQL, you should check this https://graphql.org/
+Notice there is no ability to gather email address or real name.
 
-And this codes, I made UserEntity which is inheriting Decodable because using it is easier to parse JSON I think. But of cource this is not the only way to parse JSON, choose the way what you like.
+The code below is one of many approches to parsing the values returned from SDSDKLoginClient.fetchUserData
 
 ```swift
 private func fetchSnapUserInfo(){
@@ -130,25 +133,10 @@ private func fetchSnapUserInfo(){
 }
 ```
 
-### 3.Some Adveices
-
-There're some difficult points, so I note about that here.
-
-#### Equalize Info.plist's `SCSDKRedirectUrl` with `Redirect URLs` on SnapChat Developer Portal (https://kit.snapchat.com/portal/)
-
-If you didn't equalize that, the SnapChat App would show the error.
-
-#### Don't use `-` in your app's url scheme.
-
-If you use `-` like `snap-client`, the SnapChat App would show the error.
-I don't know the reason, but it seems to be the rule of SnapChat Developer Potal.
-
 ## Creative Kit
 <img src="https://user-images.githubusercontent.com/17683316/42131997-9b7b3b8e-7d49-11e8-9651-092cf14fed1e.png" width="100">
 
 Following this document https://docs.snapchat.com/docs/creative-kit/
-
-This is so easy to code.
 
 You can share a photo or video attaching a sticker, url, and caption.
 
