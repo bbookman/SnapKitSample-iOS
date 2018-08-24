@@ -32,7 +32,7 @@ If you just want to get the app running with all the default code, follow steps:
 1. Open your Podfile and add
 
 ```ruby
-pod 'SnapSDK', :subspecs => ['SCSDKLoginKit', 'SCSDKCreativeKit', 'SCSDKBitmojiKit']
+pod 'SnapSDK'
 ```
 2. pod install
 
