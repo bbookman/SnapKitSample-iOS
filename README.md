@@ -267,3 +267,25 @@ extension CameraViewController: SCSDKBitmojiStickerPickerViewControllerDelegate 
 ```
 
 <img src="https://user-images.githubusercontent.com/17683316/42438970-8c02222c-839c-11e8-8ccb-5b0d266aa02a.gif" width="250">
+
+# If You Liked This Repository, you may also enjoy
+* [Snapchat Snap Kit DIY Docs](https://github.com/bbookman/Snapchat-Snap-Kit-DIY-Docs)
+* [Snapchat Snap Kit Mapping GPS/Location Sticker using Here SDK](https://github.com/bbookman/Snapchat-Snap-Kit-Demo-Here)
+* [Adventures in iOS Mobile App Development](https://medium.com/adventures-in-ios-mobile-app-development)
+* [We Are All Made Of Stars](http://bbookman.github.io)
+
+# Contact Me
+* [Patreon](https://www.patreon.com/saganone)
+* [Indie Hacker](https://www.indiehackers.com/bbookman)
+* [Blog](http://bbookman.github.io)
+* [LinkedIn](http://linkedin.com/in/brucebookman)
+* [Twitter @saganone1](https://twitter.com/saganone1)
+* [Medium](https://medium.com/adventures-in-ios-mobile-app-development)
+* [Codementor.io](https://www.codementor.io/bbookman)
+* [Sagan.one](http://sagan.one)
+* [Quora](https://saganone.quora.com/)
+* [GitHub](https://github.com/bbookman)
+* [Dev.to](https://dev.to/bbookman)
+* [Reddit](https://www.reddit.com/user/Bbookman)
+* [Youtube](https://www.youtube.com/channel/UCERHLEbt6fipRMiPRR4u3SQ)
+
